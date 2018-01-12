@@ -4,26 +4,21 @@ import java.util.Date;
 
 public class BookIssueDetails {
 
-    private int bookNumber;
-    private int customerId;
+    private String bookTitle;
+    private String userName;
     private Date issueDate;
     private Date returnDate;
 
-    public BookIssueDetails(int bookNumber,int customerId)
+    public String getUserName() {
+        return userName;
+    }
+
+    public BookIssueDetails(String bookTitle, String userName)
     {
-        this.bookNumber=bookNumber;
-        this.customerId = customerId;
+        this.bookTitle =bookTitle;
+        this.userName = userName;
         this.issueDate=new Date();
     }
-
-    public int getBookNumber() {
-        return bookNumber;
-    }
-
-    public void setBookNumer(int bookNumber) {
-        this.bookNumber = bookNumber;
-    }
-
 
     public Date getIssueDate() {
         return issueDate;
@@ -41,4 +36,7 @@ public class BookIssueDetails {
         this.returnDate = returnDate;
     }
 
+    public String getBookTitle() {
+        return bookTitle;
+    }
 }

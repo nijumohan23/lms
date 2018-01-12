@@ -3,20 +3,24 @@ package com.lms.domain;
 public class BookDetails {
 
     private int bookNumber;
-    private String bookName;
+    private String title;
     private Double price;
     private int count;
     private String author;
 
+    public String getAuthor() {
+        return author;
+    }
+
     public BookDetails(int bookNumber, String name, String author) {
         this.bookNumber = bookNumber;
-        this.bookName = name;
+        this.title = name;
         this.author = author;
     }
 
     public BookDetails(int bookNumber, String name, String author, Double price) {
         this.bookNumber = bookNumber;
-        this.bookName = name;
+        this.title = name;
         this.price = price;
         this.author = author;
     }
@@ -29,8 +33,8 @@ public class BookDetails {
         return bookNumber;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getTitle() {
+        return title;
     }
 
     public Double getPrice() {
