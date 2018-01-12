@@ -3,7 +3,6 @@ package com.lms.dao;
 import com.lms.domain.BookDetails;
 import com.lms.domain.BookIssueDetails;
 import com.lms.domain.UserDetails;
-import com.lms.exception.LMSException;
 
 import java.util.*;
 
@@ -44,6 +43,7 @@ public class LMSDaoInMemory implements LMSDao {
 
         String userName = bookIssueDetails.getUserName();
         UserDetails user = getUserDetailsByName(userName);
+        if (checkIfUserIsInvalid(user)) return;
 
         int maxBooksCanBeIssued = user.getMaxNumberOfBooks();
 
@@ -69,19 +69,32 @@ public class LMSDaoInMemory implements LMSDao {
 
         UserDetails user = getUserDetailsByName(userName);
 
+        if (checkIfUserIsInvalid(user)) return;
+
         List<BookIssueDetails> bd = booksIssuedForUsers.get(user);
         for (BookIssueDetails issueDetails : bd) {
             if (issueDetails.getBookTitle() == bookTitle) {
-                Date issueDate = issueDetails.getIssueDate();
+//                Date issueDate = issueDetails.getIssueDate();
                 Date returnDate = new Date();
                 issueDetails.setReturnDate(returnDate);
             }
         }
     }
 
+    private boolean checkIfUserIsInvalid(UserDetails user) {
+        if(user==null)
+        {
+            System.out.println("Invalid user");
+            return true;
+        }
+        return false;
+    }
+
     public void limitNumberOfBooksAllowedForUser(String userName, int maxNumberOfBooksAllowed) {
 
         UserDetails user = userList.get(userName);
+        if (checkIfUserIsInvalid(user)) return;
+
         user.setMaxNumberOfBooks(maxNumberOfBooksAllowed);
     }
 
@@ -95,6 +108,7 @@ public class LMSDaoInMemory implements LMSDao {
     }
 
     public UserDetails getUserDetailsByName(String userName) {
-        return userList.get(userName);
+        UserDetails user = userList.get(userName);
+        return user;
     }
 }

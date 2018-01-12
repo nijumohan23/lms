@@ -17,6 +17,9 @@ public class BookIssueDetails {
     {
         this.bookTitle =bookTitle;
         this.userName = userName;
+        /**
+         * Setting current time as issued date
+         */
         this.issueDate=new Date();
     }
 

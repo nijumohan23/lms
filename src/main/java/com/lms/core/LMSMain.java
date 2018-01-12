@@ -97,6 +97,11 @@ public class LMSMain {
         Scanner c = new Scanner(System.in);
         String userName = c.nextLine();
         UserDetails user = lmsDao.getUserDetailsByName(userName);
+        if(user==null)
+        {
+            System.out.println("Invalid user");
+            return;
+        }
         System.out.println("User Name: "+user.getName()+"\tUser Id: "+user.getId()+"\tMaximum books can be issued: "+user.getMaxNumberOfBooks());
     }
 
@@ -105,7 +110,11 @@ public class LMSMain {
         Scanner c = new Scanner(System.in);
         String author = c.nextLine();
         List<BookDetails> bookDetailsList = lmsDao.getBookDetailsByAuthor(author);
-
+        if(bookDetailsList==null)
+        {
+            System.out.println("Author name is not valid");
+            return;
+        }
         for (BookDetails book: bookDetailsList) {
             System.out.println("Book Name: "+book.getTitle()+"\tAuthor: "+book.getAuthor()+"\tPrice: "+book.getPrice());
         }
@@ -116,6 +125,11 @@ public class LMSMain {
         Scanner c = new Scanner(System.in);
         String bookTitle = c.nextLine();
         BookDetails bookDetails = lmsDao.getBookDetailsByTitle(bookTitle);
+        if(bookDetails==null)
+        {
+            System.out.println("Invalid book title");
+            return;
+        }
         System.out.println("Book Name: "+bookDetails.getTitle()+"\tAuthor: "+bookDetails.getAuthor()+"\tPrice: "+bookDetails.getPrice());
     }
 
