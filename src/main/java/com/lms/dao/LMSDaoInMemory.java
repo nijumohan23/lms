@@ -14,8 +14,8 @@ public class LMSDaoInMemory implements LMSDao {
 
     private Map<String, BookDetails> bookDetailsByTitle = new HashMap<String, BookDetails>();
     private Map<String, List<BookDetails>> bookDetailsByAuthor = new HashMap<String, List<BookDetails>>();
-    private Map<String,UserDetails> userList = new HashMap<String, UserDetails>();
-    private Map<UserDetails,List<BookIssueDetails>> booksIssuedForUsers = new HashMap<UserDetails, List<BookIssueDetails>>();
+    private Map<String, UserDetails> userList = new HashMap<String, UserDetails>();
+    private Map<UserDetails, List<BookIssueDetails>> booksIssuedForUsers = new HashMap<UserDetails, List<BookIssueDetails>>();
 
     /**
      * Assemption is each book having unique name, But an author can publish multiple books
@@ -36,7 +36,7 @@ public class LMSDaoInMemory implements LMSDao {
     }
 
     public void saveUserDetails(UserDetails user) {
-        userList.put(user.getName(),user);
+        userList.put(user.getName(), user);
     }
 
     public void lendBook(BookIssueDetails bookIssueDetails) {
@@ -55,7 +55,8 @@ public class LMSDaoInMemory implements LMSDao {
             booksIssuedForUsers.put(user, booksIssuedSofFar);
         }
 
-        if (booksIssuedSofFar.size() == maxBooksCanBeIssued) {
+        int booksIssuedCurrently = getTotalBooksIssuedToUser(booksIssuedSofFar);
+        if (booksIssuedCurrently == maxBooksCanBeIssued) {
             String message = "We have already issued max books to you. Sorry";
             System.out.println(message);
 //            throw new LMSException(message);
@@ -63,6 +64,17 @@ public class LMSDaoInMemory implements LMSDao {
 
 
         booksIssuedSofFar.add(bookIssueDetails);
+    }
+
+    private int getTotalBooksIssuedToUser(List<BookIssueDetails> booksIssuedSofFar) {
+        int numberOfBooksIssued = booksIssuedSofFar.size();
+        for (BookIssueDetails bookIssued : booksIssuedSofFar) {
+
+            if (bookIssued.getReturnDate() != null) {
+                --numberOfBooksIssued;
+            }
+        }
+        return numberOfBooksIssued;
     }
 
     public void returnBook(String userName, String bookTitle) {
@@ -82,8 +94,7 @@ public class LMSDaoInMemory implements LMSDao {
     }
 
     private boolean checkIfUserIsInvalid(UserDetails user) {
-        if(user==null)
-        {
+        if (user == null) {
             System.out.println("Invalid user");
             return true;
         }
