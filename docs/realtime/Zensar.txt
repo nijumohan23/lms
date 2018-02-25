@@ -1,0 +1,15 @@
+1. Spring batch in and out, tasklet, different components
+
+2. parallel, reader writer, processor return values in spring batch
+
+3. web services, rest, in and out, like client code , server code.
+   annotations, security wise soap or rest
+
+4. collections, to identify duplicates in java and give as a count using jdk
+
+5. Respone code or status like 400, 500 (server or client error)
+
+6. which web service soap or rest offers more security?
+   which will be more suited when u communicate between two external firms?
+   which will be suited for internal apps?
+   what will be the client side code for same ? annotation?

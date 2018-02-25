@@ -1,0 +1,7 @@
+1. Elevator design
+2. Design patterns used in jdk
+3. Design thread safe hashset
+4. In a class two method withDraw money and another getAmount, instance variable amount, make class thread safe
+6. New features in java 1.8, any performance issues with lambdas and streaming, do u know the reason for this?
+7. Any issues with default methods in interface?
+8. 

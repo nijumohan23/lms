@@ -1,0 +1,19 @@
+Round 1
+
+Interface and Abstract class - when to use and can one replace other
+Memory management - where the class variable, objects, references, primitives gets saved
+Data structures - why data structures, what is the advantage, can we operate directly on memeory
+Sprial Matrix program
+Multiple inheritance and multi level inheritance
+Why at broad level two interface like Map and Collections
+
+
+Round 2
+Design book my show
+(a) events or functionality
+(b) sequence diagram
+(c) schema design
+(d) api signature of main method or services
+(e) how to scale horizontally
+
+

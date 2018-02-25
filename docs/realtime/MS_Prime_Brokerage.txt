@@ -1,0 +1,7 @@
+
+MS Prime Brokerage
+
+1. Immutable class design with a mutable field
+2. Start N threads, all the thread should print 1, then print two and so on.
+3. One thread should print odd and other thread should print even number using wait and notify
+4. Program to check if left subtree is mirror image of right subtree and vice versa
