@@ -1,0 +1,19 @@
+44,204.17
+
+530,450
+
+Basic salary * 15/26* No of years of completed service
+
+663062 / 26*4
+
+Calculation : Basic salary * 15/26* No of years of completed service
+
+44,204.17* 15 * 3 /26
+
+63750* 8 * 15/ 26 = 293000
+
+819,000/12
+
+Last drawn salary (basic salary plus dearness allowance) X number of completed years of service X 15/26
+
+68250 * 8 * 15 /26 = 315000
