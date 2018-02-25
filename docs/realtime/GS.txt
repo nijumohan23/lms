@@ -1,9 +1,0 @@
-Coder Pad
-
-1. A boy can climb 1 step or 2 step or 3 step at a time. Give a number n, how many different combnations is required to reach step n.
-2. A two dimensional string array, called marks[][].
-   eg: [["niju","120"],
-        ["saranya,"80"],
-		["niju","100"]]
-		
-		print the maximum average, marks can be negative as well, in this case answer will be 220/2 = 110
